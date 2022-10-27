@@ -6,13 +6,13 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:50:54 by arecce            #+#    #+#             */
-/*   Updated: 2022/09/09 16:41:55 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:23:51 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numlen(long long nb)
+/* int	ft_numlen(long long nb)
 {
 	int	count;
 
@@ -22,7 +22,7 @@ int	ft_numlen(long long nb)
 	while (nb && ++count)
 		nb /= 10;
 	return (count);
-}
+} */
 
 int	ft_hex_len(long long nb)
 {

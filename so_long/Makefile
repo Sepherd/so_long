@@ -6,7 +6,7 @@
 #    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 16:33:57 by arecce            #+#    #+#              #
-#    Updated: 2022/10/26 17:07:59 by arecce           ###   ########.fr        #
+#    Updated: 2022/10/27 18:42:31 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFLAGS = -Wall -Werror -Wextra
 
 LIBFT = libft/libft.a
 
-SRCS = so_long.c get_next_line.c get_next_line_utils.c
+SRCS = so_long.c get_next_line.c get_next_line_utils.c map_check.c map_utils.c \
+		draw_map.c
 
 MLX = mlx/
 
@@ -36,7 +37,7 @@ RED = \033[1;31m
 BLU = \033[1;34m
 # YEL = \033[1;33m
 # WHT = \033[1;37m
-EOC = \033[1;0m
+EOC = \033[1;31m
 
 
 %.o: %.c
