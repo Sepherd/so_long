@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:18:03 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/27 18:48:25 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/28 14:43:51 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	line_check(char **av, t_data *data)
 			{
 				if ((k == 0 || k == data->w - 1) && line[k] != '1')
 					map_error();
-				else if ((k > 0 && k < data->w - 1) && (line[k] != 'C' && line[k] != '0' && line[k] != 'P' && line[k] != 'E' && line[k] != '1'))
+				else if ((k > 0 && k < data->w - 1) && (line[k] != 'C' && line[k] != '0' && line[k] != 'P' && line[k] != 'E' && line[k] != '1' && line[k] != 'X'))
 					map_error();
 			}
 			k++;

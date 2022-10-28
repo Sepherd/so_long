@@ -6,34 +6,27 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:38:47 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/27 18:45:38 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/28 18:32:34 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+// # ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1
+// # endif
 
 # include "libft/libft.h"
 # include <mlx.h>
 
-// typedef struct s_stack
-// {
-// 	int		*stack;
-// 	int		size;
-// 	int		pos_min;
-// 	int		pos_max;
-// 	int		value;
-// 	int		index;
-// 	int		pos;
-// 	int		target_pos;
-// 	int		cost_a;
-// 	int		cost_b;
-// 	char	***arg;
-// }				t_stack;
+typedef struct s_pg {
+	char	dir;
+	int		pos_x;
+	int		pos_y;
+	int		clt_tot;
+	int		clt_get;
+}				t_pg;
 
 typedef struct s_data {
 	void	*img;
@@ -47,6 +40,13 @@ typedef struct s_data {
 	char	**map;
 	int		h;
 	int		w;
+	void	*floor;
+	void	*wall;
+	void	*clt;
+	void	*pg;
+	void	*exit;
+	void	*enemy;
+	t_pg	p;
 }				t_data;
 
 size_t	gnl_strlen(char *str);
@@ -60,9 +60,17 @@ void	get_dim(char **av, t_data *data);
 void	line_check(char **av, t_data *data);
 void	map_error(void);
 void	len_check(char **av, t_data *data);
+void	total_clt(t_data *data, char t);
 void	get_map(char **av, t_data *data);
 void	map_memory(t_data *data);
 void	map_free(t_data *data);
-void    draw_map(t_data *data);
+void	draw_map(t_data *data);
+void	p_pos(t_data *data);
+void	front_move(t_data *data);
+void	left_move(t_data *data);
+void	back_move(t_data *data);
+void	right_move(t_data *data);
+void	win(t_data *data);
+void	close_game(t_data *data);
 
 #endif
