@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:07:03 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/28 19:05:43 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/28 19:42:09 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	front_move(t_data *data)
 	}
 	else if (data->map[data->p.pos_y + 1][data->p.pos_x] == 'X')
 	{
-		ft_printf("HAI PERSO!");
+		ft_printf("HAI PERSO!\n");
 		close_game(data);
 	}
 	else if (data->map[data->p.pos_y + 1][data->p.pos_x] == 'E')
@@ -55,13 +55,13 @@ void	back_move(t_data *data)
 	}
 	else if (data->map[data->p.pos_y - 1][data->p.pos_x] == 'X')
 	{
-		ft_printf("HAI PERSO!");
+		ft_printf("HAI PERSO!\n");
 		close_game(data);
 	}
 	else if (data->map[data->p.pos_y - 1][data->p.pos_x] == 'E')
 		win(data);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw_map(data);	
+	draw_map(data);
 }
 
 void	right_move(t_data *data)
@@ -81,7 +81,7 @@ void	right_move(t_data *data)
 	}
 	else if (data->map[data->p.pos_y][data->p.pos_x + 1] == 'X')
 	{
-		ft_printf("HAI PERSO!");
+		ft_printf("HAI PERSO!\n");
 		close_game(data);
 	}
 	else if (data->map[data->p.pos_y][data->p.pos_x + 1] == 'E')
@@ -122,8 +122,6 @@ void	win(t_data *data)
 	if (data->p.clt_tot == 0)
 	{
 		ft_printf("HAI VINTO!\n");
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		map_free(data);
-		exit(0);
+		close_game(data);
 	}
 }
