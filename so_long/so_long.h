@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:38:47 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/28 18:32:34 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/29 19:28:07 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include "libft/libft.h"
 # include <mlx.h>
+# include <time.h>
 
 typedef struct s_pg {
 	char	dir;
@@ -27,6 +28,11 @@ typedef struct s_pg {
 	int		clt_tot;
 	int		clt_get;
 }				t_pg;
+
+typedef struct s_ex {
+	int		pos_x;
+	int		pos_y;
+}				t_ex;
 
 typedef struct s_data {
 	void	*img;
@@ -47,6 +53,7 @@ typedef struct s_data {
 	void	*exit;
 	void	*enemy;
 	t_pg	p;
+	t_ex	e;
 }				t_data;
 
 size_t	gnl_strlen(char *str);
@@ -65,12 +72,20 @@ void	get_map(char **av, t_data *data);
 void	map_memory(t_data *data);
 void	map_free(t_data *data);
 void	draw_map(t_data *data);
+void	draw_pg(t_data *data);
+void	draw_clt(t_data *data);
+void	draw_exit(t_data *data);
+void	draw_enemy(t_data *data);
+void	draw_all(t_data *data);
+int		exit_loop(t_data *data);
 void	p_pos(t_data *data);
+void	e_pos(t_data *data);
 void	front_move(t_data *data);
 void	left_move(t_data *data);
 void	back_move(t_data *data);
 void	right_move(t_data *data);
 void	win(t_data *data);
 void	close_game(t_data *data);
-
+int	closes(int keycode, t_data *data);
+void	print_move(t_data *data);
 #endif

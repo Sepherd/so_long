@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:02:18 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/28 17:48:15 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/29 20:04:27 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,36 @@ void	map_free(t_data *data)
 		i++;
 	}
 	free(data->map);
+}
+
+void	draw_all(t_data *data)
+{
+	draw_map(data);
+	draw_clt(data);
+	draw_exit(data);
+	draw_pg(data);
+	draw_enemy(data);
+}
+
+int	exit_loop(t_data *data)
+{
+	int		c = 65;
+	clock_t	t = clock() / 500000;
+
+	if (t % 8)
+	{
+		data->exit = mlx_xpm_file_to_image(data->mlx_ptr, "img/x2.xpm", &c, &c);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->e.pos_x * 64, data->e.pos_y * 64);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit, data->e.pos_x * 64, data->e.pos_y * 64);
+		// mlx_destroy_image(data->mlx_ptr, data->exit);
+	}
+	else
+	{
+		data->exit = mlx_xpm_file_to_image(data->mlx_ptr, "img/x1.xpm", &c, &c);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->e.pos_x * 64, data->e.pos_y * 64);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit, data->e.pos_x * 64, data->e.pos_y * 64);
+	}
+	mlx_destroy_image(data->mlx_ptr, data->exit);
+	// mlx_hook(data->win_ptr, 2, (1L << 0), closes, data);
+	return (0);
 }

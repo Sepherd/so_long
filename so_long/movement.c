@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:07:03 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/28 19:42:09 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/29 18:38:56 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	front_move(t_data *data)
 	{
 		data->map[data->p.pos_y][data->p.pos_x] = '0';
 		data->map[data->p.pos_y + 1][data->p.pos_x] = 'P';
+		// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
+		// draw_pg(data);
 		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
 		// draw_map(data);
 	}
@@ -34,8 +36,6 @@ void	front_move(t_data *data)
 	}
 	else if (data->map[data->p.pos_y + 1][data->p.pos_x] == 'E')
 		win(data);
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw_map(data);
 }
 
 void	back_move(t_data *data)
@@ -60,8 +60,8 @@ void	back_move(t_data *data)
 	}
 	else if (data->map[data->p.pos_y - 1][data->p.pos_x] == 'E')
 		win(data);
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw_map(data);
+	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
+	// draw_pg(data);
 }
 
 void	right_move(t_data *data)
@@ -86,8 +86,8 @@ void	right_move(t_data *data)
 	}
 	else if (data->map[data->p.pos_y][data->p.pos_x + 1] == 'E')
 		win(data);
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw_map(data);
+	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
+	// draw_pg(data);
 }
 
 void	left_move(t_data *data)
@@ -102,8 +102,8 @@ void	left_move(t_data *data)
 	{
 		data->map[data->p.pos_y][data->p.pos_x] = '0';
 		data->map[data->p.pos_y][data->p.pos_x - 1] = 'P';
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		draw_map(data);
+		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		// draw_map(data);
 	}
 	else if (data->map[data->p.pos_y][data->p.pos_x - 1] == 'X')
 	{
@@ -112,8 +112,8 @@ void	left_move(t_data *data)
 	}
 	else if (data->map[data->p.pos_y][data->p.pos_x - 1] == 'E')
 		win(data);
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw_map(data);
+	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
+	// draw_pg(data);
 }
 
 void	win(t_data *data)
