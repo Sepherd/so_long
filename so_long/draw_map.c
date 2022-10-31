@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:33:04 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/29 20:01:09 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:07:48 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	draw_exit(t_data *data)
 			if (data->map[i][k] == 'E')
 			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, x, y);
-				// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit, x, y);
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit, x, y);
 				return ;
 			}
 			k++;

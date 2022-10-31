@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:38:47 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/29 19:28:07 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:14:38 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	back_move(t_data *data);
 void	right_move(t_data *data);
 void	win(t_data *data);
 void	close_game(t_data *data);
-int	closes(int keycode, t_data *data);
 void	print_move(t_data *data);
+void	exit_anim(t_data *data);
+int	closes(int keycode, t_data *data);
 #endif

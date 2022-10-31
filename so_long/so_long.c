@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:39:26 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/29 19:54:48 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:41:44 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	print_move(t_data *data)
 	move = ft_itoa(data->m_move);
 	ft_printf("%d\n", data->m_move);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	exit_anim(data);
 	draw_all(data);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 32, 32, 0xFFFFFF, move);
 }
@@ -89,12 +90,12 @@ int	main(int ac, char **av)
 	data.pg = mlx_xpm_file_to_image(data.mlx_ptr, "img/pf0.xpm", &c, &c);
 	data.exit = mlx_xpm_file_to_image(data.mlx_ptr, "img/x0.xpm", &c, &c);
 	data.enemy = mlx_xpm_file_to_image(data.mlx_ptr, "img/ef0.xpm", &c, &c);
-	draw_all(&data);
+	// draw_all(&data);
 	print_move(&data);
 	// mlx_do_key_autorepeatoff(data.mlx_ptr);
 	mlx_hook(data.win_ptr, 2, (1L << 0), closes, &data);
 	mlx_hook(data.win_ptr, 17, (1L << 16), exit_win, &data);
-	mlx_loop_hook(data.mlx_ptr, exit_loop, &data);
+	// mlx_loop_hook(data.mlx_ptr, exit_loop, &data);
 	mlx_loop(data.mlx_ptr);
 	return (0);
 }
