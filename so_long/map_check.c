@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:18:03 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/28 14:43:51 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/31 19:30:15 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ void	get_dim(char **av, t_data *data)
 		data->w++;
 	free(line);
 	close(fd);
+}
+
+void	square(t_data *data)
+{
+	if (data->w == data->h)
+		map_error();
 }
 
 void	len_check(char **av, t_data *data)
@@ -100,6 +106,7 @@ void	get_map(char **av, t_data *data)
 
 	i = 0;
 	line_check(av, data);
+	square(data);
 	map_memory(data);
 	fd = open(av[1], O_RDONLY);
 	while (i < data->h)
@@ -107,10 +114,4 @@ void	get_map(char **av, t_data *data)
 		data->map[i] = get_next_line(fd);
 		i++;
 	}
-	/* i = 0;
-	while (i < data->h)
-	{
-		ft_printf("%s", data->map[i]);
-		i++;
-	} */
 }

@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:38:47 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/31 16:14:38 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/31 19:31:57 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ typedef struct s_pg {
 	int		pos_x;
 	int		pos_y;
 	int		clt_tot;
-	int		clt_get;
+	int		ex_tot;
+	int		pg_tot;
 }				t_pg;
 
-typedef struct s_ex {
-	int		pos_x;
-	int		pos_y;
-}				t_ex;
+// typedef struct s_ex {
+// 	int		pos_x;
+// 	int		pos_y;
+// }				t_ex;
 
 typedef struct s_data {
 	void	*img;
@@ -53,7 +54,6 @@ typedef struct s_data {
 	void	*exit;
 	void	*enemy;
 	t_pg	p;
-	t_ex	e;
 }				t_data;
 
 size_t	gnl_strlen(char *str);
@@ -64,11 +64,15 @@ char	*ft_get_line(char *save);
 char	*ft_backup(char *save);
 char	*get_next_line(int fd);
 void	get_dim(char **av, t_data *data);
+void	square(t_data *data);
 void	line_check(char **av, t_data *data);
 void	map_error(void);
+void	check_ber(char **av);
 void	len_check(char **av, t_data *data);
-void	total_clt(t_data *data, char t);
+int		total_count(t_data *data, char t);
+void	control_total(t_data *data);
 void	get_map(char **av, t_data *data);
+void	img_init(t_data *data);
 void	map_memory(t_data *data);
 void	map_free(t_data *data);
 void	draw_map(t_data *data);
@@ -87,6 +91,5 @@ void	right_move(t_data *data);
 void	win(t_data *data);
 void	close_game(t_data *data);
 void	print_move(t_data *data);
-void	exit_anim(t_data *data);
 int	closes(int keycode, t_data *data);
 #endif

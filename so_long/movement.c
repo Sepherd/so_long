@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:07:03 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/31 16:04:55 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/31 19:13:20 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	left_move(t_data *data)
 
 void	win(t_data *data)
 {
-	total_clt(data, 'C');
+	data->p.clt_tot = total_count(data, 'C');
 	if (data->p.clt_tot == 0)
 	{
 		ft_printf("HAI VINTO!\n");

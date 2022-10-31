@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:31:22 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/29 19:58:06 by arecce           ###   ########.fr       */
+/*   Updated: 2022/10/31 19:10:10 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	p_pos(t_data *data)
 	}
 }
 
-void	e_pos(t_data *data)
+/* void	e_pos(t_data *data)
 {
 	data->e.pos_y = 0;
 	while (data->e.pos_y < data->h)
@@ -45,26 +45,28 @@ void	e_pos(t_data *data)
 	data->e.pos_x = data->e.pos_x;
 	data->e.pos_y = data->e.pos_y;
 	ft_printf("x %d y %d\n", data->e.pos_x, data->e.pos_y);
-}
+} */
 
-void	total_clt(t_data *data, char t)
+int	total_count(t_data *data, char t)
 {
 	int	x;
 	int	y;
+	int	i;
 
 	y = 0;
-	data->p.clt_tot = 0;
+	i = 0;
 	while (y < data->h)
 	{
 		x = 0;
 		while (x < data->w)
 		{
 			if (data->map[y][x] == t)
-				data->p.clt_tot++;
+				i++;
 			x++;
 		}
 	y++;
 	}
+	return (i);
 }
 
 void	close_game(t_data *data)

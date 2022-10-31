@@ -6,7 +6,7 @@
 #    By: arecce <arecce@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 16:33:57 by arecce            #+#    #+#              #
-#    Updated: 2022/10/31 15:21:02 by arecce           ###   ########.fr        #
+#    Updated: 2022/10/31 18:56:00 by arecce           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ CFLAGS = -Wall -Werror -Wextra
 
 LIBFT = libft/libft.a
 
-SRCS = so_long.c get_next_line.c get_next_line_utils.c map_check.c map_utils.c \
-		draw_map.c movement.c utils.c animation.c
+SRCS = so_long.c get_next_line.c get_next_line_utils.c map_check.c map_utils.c init.c \
+		draw_map.c movement.c utils.c
 
 MLX = mlx/
 
