@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:53:15 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/31 19:41:33 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:16:30 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	control_total(t_data *data)
 
 void	check_ber(char **av)
 {
+	int	i;
 	
 }

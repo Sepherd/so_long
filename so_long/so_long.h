@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:38:47 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/31 19:31:57 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:39:37 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ typedef struct s_pg {
 	int		pg_tot;
 }				t_pg;
 
-// typedef struct s_ex {
-// 	int		pos_x;
-// 	int		pos_y;
-// }				t_ex;
+typedef struct s_ex {
+	int		pos_x;
+	int		pos_y;
+}				t_ex;
 
 typedef struct s_data {
 	void	*img;
@@ -54,6 +54,7 @@ typedef struct s_data {
 	void	*exit;
 	void	*enemy;
 	t_pg	p;
+	t_ex	e;
 }				t_data;
 
 size_t	gnl_strlen(char *str);
@@ -81,7 +82,9 @@ void	draw_clt(t_data *data);
 void	draw_exit(t_data *data);
 void	draw_enemy(t_data *data);
 void	draw_all(t_data *data);
-int		exit_loop(t_data *data);
+int		exit_an(t_data *data);
+int		enemy_an(t_data *data);
+void	pg_an(t_data *data);
 void	p_pos(t_data *data);
 void	e_pos(t_data *data);
 void	front_move(t_data *data);
@@ -91,5 +94,5 @@ void	right_move(t_data *data);
 void	win(t_data *data);
 void	close_game(t_data *data);
 void	print_move(t_data *data);
-int	closes(int keycode, t_data *data);
+
 #endif

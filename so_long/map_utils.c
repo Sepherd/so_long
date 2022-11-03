@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:02:18 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/31 18:22:09 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/03 14:13:39 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,3 @@ void	draw_all(t_data *data)
 	draw_pg(data);
 	draw_enemy(data);
 }
-
-/* int	exit_loop(t_data *data)
-{
-	int		c = 65;
-	clock_t	t = clock() / 500000;
-
-	if (t % 6)
-	{
-		data->exit = mlx_xpm_file_to_image(data->mlx_ptr, "img/x2.xpm", &c, &c);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->e.pos_x * 64, data->e.pos_y * 64);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit, data->e.pos_x * 64, data->e.pos_y * 64);
-	}
-	else
-	{
-		data->exit = mlx_xpm_file_to_image(data->mlx_ptr, "img/x1.xpm", &c, &c);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->e.pos_x * 64, data->e.pos_y * 64);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->exit, data->e.pos_x * 64, data->e.pos_y * 64);
-	}
-	mlx_destroy_image(data->mlx_ptr, data->exit);
-	return (0);
-} */

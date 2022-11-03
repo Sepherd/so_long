@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:39:26 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/31 19:39:27 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:39:24 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	closes(int keycode, t_data *data)
 		back_move(data);
 		data->m_move++;
 	}
+	else if (keycode == 49)
+		pg_an(data);
 	print_move(data);
 	return (0);
 }
@@ -80,6 +82,7 @@ int	main(int ac, char **av)
 	check_ber(av);
 	get_map(av, &data);
 	p_pos(&data);
+	e_pos(&data);
 	control_total(&data);
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, data.w * 64, data.h * 64, "Dragon Ball M");
@@ -88,6 +91,8 @@ int	main(int ac, char **av)
 	print_move(&data);
 	mlx_hook(data.win_ptr, 2, (1L << 0), closes, &data);
 	mlx_hook(data.win_ptr, 17, (1L << 16), exit_win, &data);
+	mlx_loop_hook(data.mlx_ptr, exit_an, &data);
+	// mlx_key_hook(data.win_ptr, pg_an, &data);
 	mlx_loop(data.mlx_ptr);
 	return (0);
 }
