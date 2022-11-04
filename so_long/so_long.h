@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:38:47 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/03 16:39:37 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/04 15:43:05 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ typedef struct s_pg {
 typedef struct s_ex {
 	int		pos_x;
 	int		pos_y;
+	void	*mlx_ptr;
 }				t_ex;
 
-typedef struct s_data {
+typedef struct s_d {
 	void	*img;
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -55,7 +56,7 @@ typedef struct s_data {
 	void	*enemy;
 	t_pg	p;
 	t_ex	e;
-}				t_data;
+}				t_d;
 
 size_t	gnl_strlen(char *str);
 char	*gnl_strchr(char *s, int c);
@@ -64,35 +65,35 @@ char	*ft_reading(int fd, char *save);
 char	*ft_get_line(char *save);
 char	*ft_backup(char *save);
 char	*get_next_line(int fd);
-void	get_dim(char **av, t_data *data);
-void	square(t_data *data);
-void	line_check(char **av, t_data *data);
+void	get_dim(char **av, t_d *d);
+void	square(t_d *d);
+void	line_check(char **av, t_d *d);
 void	map_error(void);
 void	check_ber(char **av);
-void	len_check(char **av, t_data *data);
-int		total_count(t_data *data, char t);
-void	control_total(t_data *data);
-void	get_map(char **av, t_data *data);
-void	img_init(t_data *data);
-void	map_memory(t_data *data);
-void	map_free(t_data *data);
-void	draw_map(t_data *data);
-void	draw_pg(t_data *data);
-void	draw_clt(t_data *data);
-void	draw_exit(t_data *data);
-void	draw_enemy(t_data *data);
-void	draw_all(t_data *data);
-int		exit_an(t_data *data);
-int		enemy_an(t_data *data);
-void	pg_an(t_data *data);
-void	p_pos(t_data *data);
-void	e_pos(t_data *data);
-void	front_move(t_data *data);
-void	left_move(t_data *data);
-void	back_move(t_data *data);
-void	right_move(t_data *data);
-void	win(t_data *data);
-void	close_game(t_data *data);
-void	print_move(t_data *data);
+void	len_check(char **av, t_d *d);
+int		total_count(t_d *d, char t);
+void	control_total(t_d *d);
+void	get_map(char **av, t_d *d);
+void	img_init(t_d *d);
+void	check_utils(t_d *d, int i, int k, char *line);
+void	map_free(t_d *d);
+void	draw_map(t_d *d);
+void	draw_pg(t_d *d);
+void	draw_clt(t_d *d);
+void	draw_exit(t_d *d);
+void	draw_enemy(t_d *d);
+void	draw_all(t_d *d);
+int		exit_an(t_d *d);
+void	p_pos(t_d *d);
+void	e_pos(t_d *d);
+void	front_move(t_d *d);
+void	left_move(t_d *d);
+void	back_move(t_d *d);
+void	right_move(t_d *d);
+void	win(t_d *d);
+void	close_game(t_d *d);
+void	print_move(t_d *d);
+void	print_lose(void);
+void	print_win(void);
 
 #endif

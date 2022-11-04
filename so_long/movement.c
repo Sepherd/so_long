@@ -6,122 +6,108 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:07:03 by arecce            #+#    #+#             */
-/*   Updated: 2022/10/31 19:13:20 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/04 16:02:51 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	front_move(t_data *data)
+void	front_move(t_d *d)
 {
 	int	c;
 
 	c = 65;
-	p_pos(data);
-	data->pg = mlx_xpm_file_to_image(data->mlx_ptr, "img/pf0.xpm", &c, &c);
-	if (data->map[data->p.pos_y + 1][data->p.pos_x] == '0' \
-		|| data->map[data->p.pos_y + 1][data->p.pos_x] == 'C')
+	p_pos(d);
+	d->pg = mlx_xpm_file_to_image(d->mlx_ptr, "img/pf0.xpm", &c, &c);
+	if (d->map[d->p.pos_y + 1][d->p.pos_x] == '0' \
+		|| d->map[d->p.pos_y + 1][d->p.pos_x] == 'C')
 	{
-		data->map[data->p.pos_y][data->p.pos_x] = '0';
-		data->map[data->p.pos_y + 1][data->p.pos_x] = 'P';
-		// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
-		// draw_pg(data);
-		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		// draw_map(data);
+		d->map[d->p.pos_y][d->p.pos_x] = '0';
+		d->map[d->p.pos_y + 1][d->p.pos_x] = 'P';
 	}
-	else if (data->map[data->p.pos_y + 1][data->p.pos_x] == 'X')
+	else if (d->map[d->p.pos_y + 1][d->p.pos_x] == 'X')
 	{
-		ft_printf("HAI PERSO!\n");
-		close_game(data);
+		print_lose();
+		close_game(d);
 	}
-	else if (data->map[data->p.pos_y + 1][data->p.pos_x] == 'E')
-		win(data);
+	else if (d->map[d->p.pos_y + 1][d->p.pos_x] == 'E')
+		win(d);
 }
 
-void	back_move(t_data *data)
+void	back_move(t_d *d)
 {
 	int	c;
 
 	c = 65;
-	p_pos(data);
-	data->pg = mlx_xpm_file_to_image(data->mlx_ptr, "img/pb0.xpm", &c, &c);
-	if (data->map[data->p.pos_y - 1][data->p.pos_x] == '0' \
-		|| data->map[data->p.pos_y - 1][data->p.pos_x] == 'C')
+	p_pos(d);
+	d->pg = mlx_xpm_file_to_image(d->mlx_ptr, "img/pb0.xpm", &c, &c);
+	if (d->map[d->p.pos_y - 1][d->p.pos_x] == '0' \
+		|| d->map[d->p.pos_y - 1][d->p.pos_x] == 'C')
 	{
-		data->map[data->p.pos_y][data->p.pos_x] = '0';
-		data->map[data->p.pos_y - 1][data->p.pos_x] = 'P';
-		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		// draw_map(data);
+		d->map[d->p.pos_y][d->p.pos_x] = '0';
+		d->map[d->p.pos_y - 1][d->p.pos_x] = 'P';
 	}
-	else if (data->map[data->p.pos_y - 1][data->p.pos_x] == 'X')
+	else if (d->map[d->p.pos_y - 1][d->p.pos_x] == 'X')
 	{
-		ft_printf("HAI PERSO!\n");
-		close_game(data);
+		print_lose();
+		close_game(d);
 	}
-	else if (data->map[data->p.pos_y - 1][data->p.pos_x] == 'E')
-		win(data);
-	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
-	// draw_pg(data);
+	else if (d->map[d->p.pos_y - 1][d->p.pos_x] == 'E')
+		win(d);
 }
 
-void	right_move(t_data *data)
+void	right_move(t_d *d)
 {
 	int	c;
 
 	c = 65;
-	p_pos(data);
-	data->pg = mlx_xpm_file_to_image(data->mlx_ptr, "img/pr0.xpm", &c, &c);
-	if (data->map[data->p.pos_y][data->p.pos_x + 1] == '0' \
-		|| data->map[data->p.pos_y][data->p.pos_x + 1] == 'C')
+	p_pos(d);
+	d->pg = mlx_xpm_file_to_image(d->mlx_ptr, "img/pr0.xpm", &c, &c);
+	if (d->map[d->p.pos_y][d->p.pos_x + 1] == '0' \
+		|| d->map[d->p.pos_y][d->p.pos_x + 1] == 'C')
 	{
-		data->map[data->p.pos_y][data->p.pos_x] = '0';
-		data->map[data->p.pos_y][data->p.pos_x + 1] = 'P';
-		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		// draw_map(data);
+		d->map[d->p.pos_y][d->p.pos_x] = '0';
+		d->map[d->p.pos_y][d->p.pos_x + 1] = 'P';
 	}
-	else if (data->map[data->p.pos_y][data->p.pos_x + 1] == 'X')
+	else if (d->map[d->p.pos_y][d->p.pos_x + 1] == 'X')
 	{
-		ft_printf("HAI PERSO!\n");
-		close_game(data);
+		print_lose();
+		close_game(d);
 	}
-	else if (data->map[data->p.pos_y][data->p.pos_x + 1] == 'E')
-		win(data);
-	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
-	// draw_pg(data);
+	else if (d->map[d->p.pos_y][d->p.pos_x + 1] == 'E')
+		win(d);
 }
 
-void	left_move(t_data *data)
+void	left_move(t_d *d)
 {
 	int	c;
 
 	c = 65;
-	p_pos(data);
-	data->pg = mlx_xpm_file_to_image(data->mlx_ptr, "img/pl0.xpm", &c, &c);
-	if (data->map[data->p.pos_y][data->p.pos_x - 1] == '0' \
-		|| data->map[data->p.pos_y][data->p.pos_x - 1] == 'C')
+	p_pos(d);
+	d->pg = mlx_xpm_file_to_image(d->mlx_ptr, "img/pl0.xpm", &c, &c);
+	if (d->map[d->p.pos_y][d->p.pos_x - 1] == '0' \
+		|| d->map[d->p.pos_y][d->p.pos_x - 1] == 'C')
 	{
-		data->map[data->p.pos_y][data->p.pos_x] = '0';
-		data->map[data->p.pos_y][data->p.pos_x - 1] = 'P';
-		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		// draw_map(data);
+		d->map[d->p.pos_y][d->p.pos_x] = '0';
+		d->map[d->p.pos_y][d->p.pos_x - 1] = 'P';
 	}
-	else if (data->map[data->p.pos_y][data->p.pos_x - 1] == 'X')
+	else if (d->map[d->p.pos_y][d->p.pos_x - 1] == 'X')
 	{
-		ft_printf("HAI PERSO!\n");
-		close_game(data);
+		print_lose();
+		close_game(d);
 	}
-	else if (data->map[data->p.pos_y][data->p.pos_x - 1] == 'E')
-		win(data);
-	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->floor, data->p.pos_x * 64, data->p.pos_y * 64);
-	// draw_pg(data);
+	else if (d->map[d->p.pos_y][d->p.pos_x - 1] == 'E')
+		win(d);
 }
 
-void	win(t_data *data)
+void	win(t_d *d)
 {
-	data->p.clt_tot = total_count(data, 'C');
-	if (data->p.clt_tot == 0)
+	d->p.clt_tot = total_count(d, 'C');
+	if (d->p.clt_tot == 0)
 	{
-		ft_printf("HAI VINTO!\n");
-		close_game(data);
+		print_win();
+		close_game(d);
 	}
+	else
+		ft_printf("\033[1;34mNon hai raccolto tutti i collezionabili!\n\033[1;0m");
 }
