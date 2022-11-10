@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:53:15 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/04 15:55:26 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/10 16:58:36 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ void	img_init(t_d *d)
 	int	c;
 
 	c = 65;
-	d->floor = mlx_xpm_file_to_image(d->mlx_ptr, "img/0.xpm", &c, &c);
-	d->wall = mlx_xpm_file_to_image(d->mlx_ptr, "img/1.xpm", &c, &c);
-	d->clt = mlx_xpm_file_to_image(d->mlx_ptr, "img/c.xpm", &c, &c);
-	d->pg = mlx_xpm_file_to_image(d->mlx_ptr, "img/pf0.xpm", &c, &c);
-	d->exit = mlx_xpm_file_to_image(d->mlx_ptr, "img/x0.xpm", &c, &c);
-	d->enemy = mlx_xpm_file_to_image(d->mlx_ptr, "img/ef0.xpm", &c, &c);
+	d->m_move = 1;
+	d->floor = mlx_xpm_file_to_image(d->mlx, "img/0.xpm", &c, &c);
+	d->wall = mlx_xpm_file_to_image(d->mlx, "img/1.xpm", &c, &c);
+	d->clt = mlx_xpm_file_to_image(d->mlx, "img/c.xpm", &c, &c);
+	d->pg = mlx_xpm_file_to_image(d->mlx, "img/pf0.xpm", &c, &c);
+	d->exit = mlx_xpm_file_to_image(d->mlx, "img/x0.xpm", &c, &c);
+	d->enemy = mlx_xpm_file_to_image(d->mlx, "img/ef0.xpm", &c, &c);
+	e_pos(d);
 }
 
 void	control_total(t_d *d)

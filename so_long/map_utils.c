@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:02:18 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/04 14:37:28 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/10 17:01:33 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,28 @@ void	map_free(t_d *d)
 	free(d->map);
 }
 
+void	refresh_map(t_d *d)
+{
+	int	i;
+	int	x;
+	int	y;
+
+	i = 0;
+	x = 0;
+	y = 0;
+	while (i < d->w)
+	{
+		mlx_put_image_to_window(d->mlx, d->win, d->wall, x, y);
+		x += 64;
+		i++;
+	}
+}
+
 void	draw_all(t_d *d)
 {
-	draw_map(d);
+	refresh_map(d);
+	draw_floor(d);
 	draw_clt(d);
-	draw_exit(d);
-	draw_pg(d);
 	draw_enemy(d);
+	draw_pg(d);
 }

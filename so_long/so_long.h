@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:38:47 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/04 15:43:05 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/10 18:36:52 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ typedef struct s_pg {
 typedef struct s_ex {
 	int		pos_x;
 	int		pos_y;
-	void	*mlx_ptr;
+	int		en_y;
+	int		en_x;
+	void	*mlx;
 }				t_ex;
 
 typedef struct s_d {
 	void	*img;
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void	*mlx;
+	void	*win;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
@@ -86,6 +88,7 @@ void	draw_all(t_d *d);
 int		exit_an(t_d *d);
 void	p_pos(t_d *d);
 void	e_pos(t_d *d);
+void	movement(t_d *d, int keycode);
 void	front_move(t_d *d);
 void	left_move(t_d *d);
 void	back_move(t_d *d);
@@ -93,7 +96,16 @@ void	right_move(t_d *d);
 void	win(t_d *d);
 void	close_game(t_d *d);
 void	print_move(t_d *d);
-void	print_lose(void);
+void	print_lose(t_d *d);
 void	print_win(void);
+void	refresh_map(t_d *d);
+void	draw_floor(t_d *d);
+void	en_pos(t_d *d);
+void	en_move(t_d *d);
+void	en_move_d(t_d *d);
+void	enemy_left(t_d *d);
+void	enemy_right(t_d *d);
+void	enemy_front(t_d *d);
+void	enemy_back(t_d *d);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:13:21 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/04 15:59:22 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/10 18:04:44 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,50 @@
 int	exit_an(t_d *d)
 {
 	int		c;
-	clock_t	t;
+	time_t	t;
 
+	t = time(&t);
 	c = 65;
-	t = clock() / 500000;
-	if (t % 8)
+	if (t % 8 == 0)
 	{
-		d->exit = mlx_xpm_file_to_image(d->e.mlx_ptr, "img/x2.xpm", &c, &c);
-		mlx_put_image_to_window(d->e.mlx_ptr, d->win_ptr, d->floor, \
+		d->exit = mlx_xpm_file_to_image(d->e.mlx, "img/x1.xpm", &c, &c);
+		mlx_put_image_to_window(d->e.mlx, d->win, d->floor, \
 			d->e.pos_x * 64, d->e.pos_y * 64);
-		mlx_put_image_to_window(d->e.mlx_ptr, d->win_ptr, d->exit, \
+		mlx_put_image_to_window(d->e.mlx, d->win, d->exit, \
 			d->e.pos_x * 64, d->e.pos_y * 64);
 	}
 	else
 	{
-		d->exit = mlx_xpm_file_to_image(d->e.mlx_ptr, "img/x1.xpm", &c, &c);
-		mlx_put_image_to_window(d->e.mlx_ptr, d->win_ptr, d->floor, \
+		d->exit = mlx_xpm_file_to_image(d->e.mlx, "img/x2.xpm", &c, &c);
+		mlx_put_image_to_window(d->e.mlx, d->win, d->floor, \
 			d->e.pos_x * 64, d->e.pos_y * 64);
-		mlx_put_image_to_window(d->e.mlx_ptr, d->win_ptr, d->exit, \
+		mlx_put_image_to_window(d->e.mlx, d->win, d->exit, \
 			d->e.pos_x * 64, d->e.pos_y * 64);
 	}
 	return (0);
+}
+
+void	draw_floor(t_d *d)
+{
+	int	i;
+	int	k;
+	int	x;
+	int	y;
+
+	i = 0;
+	y = 0;
+	while (i < d->h)
+	{
+		k = 0;
+		x = 0;
+		while (k < d->w)
+		{
+			if (d->map[i][k] == '0')
+				mlx_put_image_to_window(d->mlx, d->win, d->floor, x, y);
+			k++;
+			x += 64;
+		}
+		i++;
+		y += 64;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:33:04 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/04 12:19:34 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/09 17:46:24 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	draw_map(t_d *d)
 		while (k < d->w)
 		{
 			if (d->map[i][k] == '1')
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->wall, x, y);
-			else if (d->map[i][k] == '0')
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->floor, x, y);
+				mlx_put_image_to_window(d->mlx, d->win, d->wall, x, y);
+			else
+				mlx_put_image_to_window(d->mlx, d->win, d->floor, x, y);
 			k++;
 			x += 64;
 		}
@@ -56,8 +56,7 @@ void	draw_pg(t_d *d)
 		{
 			if (d->map[i][k] == 'P')
 			{
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->floor, x, y);
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->pg, x, y);
+				mlx_put_image_to_window(d->mlx, d->win, d->pg, x, y);
 				return ;
 			}
 			k++;
@@ -84,10 +83,7 @@ void	draw_clt(t_d *d)
 		while (k < d->w)
 		{
 			if (d->map[i][k] == 'C')
-			{
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->floor, x, y);
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->clt, x, y);
-			}
+				mlx_put_image_to_window(d->mlx, d->win, d->clt, x, y);
 			k++;
 			x += 64;
 		}
@@ -113,8 +109,7 @@ void	draw_exit(t_d *d)
 		{
 			if (d->map[i][k] == 'E')
 			{
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->floor, x, y);
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->exit, x, y);
+				mlx_put_image_to_window(d->mlx, d->win, d->exit, x, y);
 				return ;
 			}
 			k++;
@@ -141,10 +136,7 @@ void	draw_enemy(t_d *d)
 		while (k < d->w)
 		{
 			if (d->map[i][k] == 'X')
-			{
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->floor, x, y);
-				mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->enemy, x, y);
-			}
+				mlx_put_image_to_window(d->mlx, d->win, d->enemy, x, y);
 			k++;
 			x += 64;
 		}
