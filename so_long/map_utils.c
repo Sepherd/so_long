@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:02:18 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/10 17:01:33 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/11 17:19:11 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	map_error(void)
 {
-	ft_printf("\033[1;31mError!\nManco una mappa sai disegnare...\n\033[1;0m");
+	ft_printf("\033[1;31mError\nManco una mappa sai disegnare...\n\033[1;0m");
 	exit(0);
 }
 

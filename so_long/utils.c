@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:31:22 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/04 16:09:17 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:37:13 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	total_count(t_d *d, char t)
 
 void	close_game(t_d *d)
 {
-	mlx_destroy_window(d->mlx_ptr, d->win_ptr);
+	mlx_destroy_window(d->mlx, d->win);
 	map_free(d);
 	exit(0);
 }

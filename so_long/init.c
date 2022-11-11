@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:53:15 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/10 16:58:36 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/11 17:17:37 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	control_total(t_d *d)
 	d->p.ex_tot = total_count(d, 'E');
 	d->p.pg_tot = total_count(d, 'P');
 	if (d->p.ex_tot != 1 || d->p.pg_tot != 1 || d->p.clt_tot < 1)
-		close_game(d);
+		map_error();
 }
 
 int	ft_strcmp(char *s1, char *s2)

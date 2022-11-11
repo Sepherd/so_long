@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:33:04 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/09 17:46:24 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/11 16:25:51 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	draw_pg(t_d *d)
 		{
 			if (d->map[i][k] == 'P')
 			{
+				mlx_put_image_to_window(d->mlx, d->win, d->floor, x, y);
 				mlx_put_image_to_window(d->mlx, d->win, d->pg, x, y);
 				return ;
 			}
@@ -136,7 +137,10 @@ void	draw_enemy(t_d *d)
 		while (k < d->w)
 		{
 			if (d->map[i][k] == 'X')
+			{
+				mlx_put_image_to_window(d->mlx, d->win, d->floor, x, y);
 				mlx_put_image_to_window(d->mlx, d->win, d->enemy, x, y);
+			}
 			k++;
 			x += 64;
 		}

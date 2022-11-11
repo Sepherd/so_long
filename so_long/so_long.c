@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:39:26 by arecce            #+#    #+#             */
-/*   Updated: 2022/11/10 18:02:11 by arecce           ###   ########.fr       */
+/*   Updated: 2022/11/11 17:11:51 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	main(int ac, char **av)
 		exit(0);
 	check_ber(av);
 	get_map(av, &d);
-	p_pos(&d);
 	control_total(&d);
+	p_pos(&d);
 	d.mlx = mlx_init();
 	d.e.mlx = mlx_init();
 	d.win = mlx_new_window(d.mlx, d.w * 64, d.h * 64, "Dragon Ball M");
@@ -73,3 +73,4 @@ int	main(int ac, char **av)
 //	53			esc
 //	49			space
 // ft_printf("%d\n", keycode);
+// leaks --list so_long durante l'esecuzione
